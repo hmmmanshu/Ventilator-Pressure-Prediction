@@ -1,0 +1,332 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Presentation</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/night.css">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section>
+                <section data-markdown data-background-image="./1.jpeg">
+                    <textarea data-template>
+						<p class="r-fit-text" style="text-shadow: 5px 5px 15px #000;">Ventilator pressure prediction project</p>
+						<h4 style="text-shadow: 5px 5px 15px #000;">Team Data Wranglers</h1>
+						<h4 style="text-shadow: 5px 5px 15px #000;">Intellinovation - 2021</h1><br>
+						<h3 style="text-shadow: 5px 5px 15px #000;">Graphic Era Deemed to be University</h3>
+					  </textarea>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+						**Aim :** To automate external pressure on ventilator for a sedated patient
+					  </textarea>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+						**Technique used :** RNN (LSTM networks)
+					  </textarea>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Workflow</h2>
+                </section>
+                <section data-markdown data-auto-animate>
+                    <textarea data-template>
+						- Reading the data
+					  </textarea>
+                </section>
+                <section data-markdown data-auto-animate>
+                    <textarea data-template>
+						- Reading the data
+						- Data analysis
+					  </textarea>
+                </section>
+                <section data-markdown data-auto-animate>
+                    <textarea data-template>
+						- Reading the data
+						- Data analysis
+						- Feature engineering
+					  </textarea>
+                </section>
+                <section data-markdown data-auto-animate>
+                    <textarea data-template>
+						- Reading the data
+						- Data analysis
+						- Feature engineering
+						- Scaling
+					  </textarea>
+                </section>
+                <section data-markdown data-auto-animate>
+                    <textarea data-template>
+						- Reading the data
+						- Data analysis
+						- Feature engineering
+						- Scaling
+						- Modelling
+					  </textarea>
+                </section>
+                <section data-markdown data-auto-animate>
+                    <textarea data-template>
+						- Reading the data
+						- Data analysis
+						- Feature engineering
+						- Scaling
+						- Modelling
+						- Training
+					  </textarea>
+                </section>
+                <section data-markdown data-auto-animate>
+                    <textarea data-template>
+						- Reading the data
+						- Data analysis
+						- Feature engineering
+						- Scaling
+						- Modelling
+						- Training
+						- Cross validation
+					  </textarea>
+                </section>
+                <section data-markdown data-auto-animate>
+                    <textarea data-template>
+						- Reading the data
+						- Data analysis
+						- Feature engineering
+						- Scaling
+						- Modelling
+						- Training
+						- Cross validation
+						- Output
+					  </textarea>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Data analysis</h2>
+                </section>
+                <section>
+                    <h5>Loading the data</h5>
+                    <pre><code data-trim data-noescape>
+						import pandas as pd
+						path = "./"
+						train_ori = pd.read_csv(path + "train.csv")
+						test_ori  = pd.read_csv(path + "test.csv")
+						sample = pd.read_csv(path + "sample_submission.csv")
+					  </code></pre></section>
+                <section data-auto-animate>
+                    <h2>EDA</h2>
+                </section>
+                <section data-auto-animate>
+                    <h2>EDA</h2>
+                    <h4>Feature distribution</h4>
+                </section>
+                <section data-auto-animate>
+                    <h4>Feature distribution</h4>
+                    <h4>Common features</h4>
+                    <img width="1920" src="./Visualizations/breath_id.jpg" alt="Breath id">
+                </section>
+                <section data-auto-animate>
+                    <h4>Feature distribution</h4>
+                    <h4>Common features</h4>
+                    <img width="1920" src="./Visualizations/breath_id.jpg" alt="Breath id">
+                    <img width="1920" src="./Visualizations/R.jpg" alt="R">
+                </section>
+                <section data-auto-animate>
+                    <h4>Feature distribution</h4>
+                    <h4>Common features</h4>
+                    <img width="1920" src="./Visualizations/R.jpg" alt="R">
+                    <img width="1920" src="./Visualizations/C.jpg" alt="C">
+                </section>
+                <section data-auto-animate>
+                    <h4>Feature distribution</h4>
+                    <h4>Common features</h4>
+                    <img width="1920" src="./Visualizations/C.jpg" alt="C">
+                    <img width="1920" src="./Visualizations/time_step.jpg" alt="Rime step">
+                </section>
+                <section data-auto-animate>
+                    <h4>Feature distribution</h4>
+                    <h4>Common features</h4>
+                    <img width="1920" src="./Visualizations/time_step.jpg" alt="Rime step">
+                    <img width="1920" src="./Visualizations/u_in.jpg" alt="u_in">
+                </section>
+                <section data-auto-animate>
+                    <h4>Feature distribution</h4>
+                    <h4>Common features</h4>
+                    <img width="1920" src="./Visualizations/u_in.jpg" alt="u_in">
+                    <img width="1920" src="./Visualizations/u_out.jpg" alt="u_out">
+                </section>
+                <section data-auto-animate>
+                    <h4>Feature distribution</h4>
+                    <h4>Numerical features</h4>
+                    <img width="1920" src="./Visualizations/Count_C.jpg" alt="u_in">
+                </section>
+                <section data-auto-animate>
+                    <h4>Feature distribution</h4>
+                    <h4>Numerical features</h4>
+                    <img width="1920" src="./Visualizations/Count_R.jpg" alt="u_out">
+                </section>
+                <section data-auto-animate>
+                    <h4>Feature distribution</h4>
+                    <h4>Numerical features</h4>
+                    <img height="820" src="./Visualizations/Count_u_out.jpg" alt="u_out">
+                </section>
+                <section>
+                    <h3>Pressure over time</h3>
+                    <img width="1920px" src="./output.gif" alt="Video here">
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Feature engineering</h2>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                        | Feature            | Definition  |
+                        | -----------        | ----------- |
+                        | R                  | str(R)      |
+                        | C                  | str(C)      |
+                        | RC                 | R+C         |
+                        | u_in_lag           | shift-1(u_in) * breath_id_lagsame   |
+                        | u_in_lag2          | shift-2(u_in) * breath_id_lag2same  |
+                        | u_out_lag2         | shift-2(u_out) * breath_id_lag2same |
+                        | area               | cumulative_sum(time_step * u_out)   |
+                        | cross              | u_in * u_out       |
+                        | cross2             | time_step * u_out  |
+                        | breath_id_lag      | shift-1(breath_id) |
+                        | breath_id_lag2     | shift-2(breath_id) |
+                        | breath_id_lagsame  | np.select([df['breath_id_lag']==df['breath_id']], [1], 0)  |
+                        | breath_id_lag2same | np.select([df['breath_id_lag2']==df['breath_id']], [1], 0) |
+                        | u_in_cumsum        | cumulative_sum(u_in)     |
+                        | u_in_cummean       | u_in_cumsum/breath_count |
+                    </textarea>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Data scaling</h2>
+                </section>
+                <section>
+                    <pre><code data-trim data-noescape>
+                        RS = RobustScaler()
+                        train = RS.fit_transform(train)
+                        test = RS.transform(test)
+					  </code></pre></section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Modelling</h2>
+                </section>
+                <section data-auto-animate>
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 450 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 350 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 250 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 150 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 100 units) )</p>
+                </section>
+                <section data-auto-animate>
+                    <p style="font-size:34px;">Input layer</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 450 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 350 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 250 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 150 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 100 units) )</p>
+                </section>
+                <section data-auto-animate>
+                    <p style="font-size:34px;">Input layer</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 450 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 350 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 250 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 150 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Bidirectional ( LSTM ( 100 units) )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Dense( 50 )</p>
+                    <img width="20px" src="./arrow.png" alt="">
+                    <p style="font-size:34px;">Dense( 1 )</p>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                        | Parameter        | Value       |
+                        | -----------      | ----------- |
+                        | Epochs           | 300         |
+                        | Batch Size       | 512         |
+                        | Folds            | 6           |
+                        | Shuffle          | True        |
+                        | Optimizer        | Adam        |
+                        | Loss             | Mean Absolute Error                       |
+                        | Callbacks        | LearningRateScheduler (Exponential Decay) |
+                    </textarea>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Result</h2>
+                    <p>Mean Absolute Error = 0.158</p>
+                    <p>Runtime = 31315.8 seconds (8.7 hours)</p>
+                    <p>Accelerator = TPU v3.8</p>
+                </section>
+                <section>
+                    <h3>Comparing manual pressure to pressure generated by model</h3>
+                    <img src="./output.gif" alt="">
+                    <img src="./output2.gif" alt="">
+                </section>
+            </section>
+
+            <section id="final ">
+                <h2>Thank You</h2>
+                <a href="../Visualization/html/playground/index2.html ">View source code</a>
+                <h2>Play</h2>
+                <a href="../index.html ">Go to playground</a>
+            </section>
+        </div>
+    </div>
+
+
+    <script>
+        Reveal.initialize({
+            width: 1920,
+            height: 1080,
+            controls: false,
+            hash: true,
+            touch: true,
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+            transition: 'slide',
+            mouseWheel: true
+        });
+    </script>
+</body>
+
+</html>
