@@ -319,15 +319,21 @@
 
 
     <script>
+	    function sleep(milliseconds) {
+		  const date = Date.now();
+		  let currentDate = null;
+		  do {
+		    currentDate = Date.now();
+		  } while (currentDate - date < milliseconds);
+		}
 	window.onload = (function()
 	{
-		setTimeout(function(){
-		}, 2000);
 	  if( window.localStorage )
 	  {
 	    if( !localStorage.getItem('firstLoad') )
 	    {
 	      localStorage['firstLoad'] = true;
+		    sleep(3000);
 	      window.location.reload();
 	    }  
 	    else
