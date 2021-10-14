@@ -218,6 +218,24 @@
                     <h2>Inference</h2>
                     <p>Since the given data is time series data, we prefer using a recurrent neural network for the purpose,<br> LSTM network to be more specific</p>
                 </section>
+                <section data-auto-animate>
+                    <h2>Inference</h2>
+                    <p>Reason being, RNNs have a ability to remmeber data rather than to train and predict upon data once and for all</p>
+                </section>
+                <section data-auto-animate>
+                    <h3>Classic feed forward network</h3>
+                    <img src="./1_YgJ6SYO7byjfCmt5uV0PmA.png" alt="NN">
+                </section>
+                <section data-auto-animate>
+                    <h3>Classic feed forward network</h3>
+                    <h3>as opposed to RNN</h3>
+                    <img src="./rnn-vs-fnn.png" alt="NN">
+                </section>
+                <section>
+                    <h3>Network choice</h3>
+                    <img src="./Feed-Forward-Neural-Networks.png" alt="">
+                    <p>Many to one</p>
+                </section>
             </section>
             <section>
                 <section>
@@ -249,8 +267,6 @@
             <section>
                 <section>
                     <h2>Data scaling</h2>
-                </section>
-                <section>
                     <pre><code data-trim data-noescape>
                         RS = RobustScaler()
                         train = RS.fit_transform(train)
