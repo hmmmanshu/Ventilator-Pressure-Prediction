@@ -24,7 +24,7 @@
             <section>
                 <section data-markdown data-background-image="./1.jpeg">
                     <textarea data-template>
-						<h1 class="r-fit-text" style="text-shadow: 5px 5px 15px #000;">Ventilator pressure prediction project</h1>
+						<h1 class="r-fit-text" style="text-shadow: 5px 5px 15px #000;">Ventilator pressure automation project</h1>
 						<h4 style="text-shadow: 5px 5px 15px #000;">Team Data Wranglers</h1>
 						<h4 style="text-shadow: 5px 5px 15px #000;">Intellinovation - 2021</h1><br>
 						<h3 style="text-shadow: 5px 5px 15px #000;">Graphic Era Deemed to be University</h3>
@@ -32,12 +32,24 @@
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-						**Aim :** To automate external pressure on ventilator for a sedated patient
+                        **Current scenario :** Mechanical Ventilation
+                        ___
+                        Mechanical ventilation is a clinician-intensive procedure. Also, building new methods of 
+                        ventilation would cost a lot of money and would even get more expensive once it reached clinical trials
+                        ___
+                        Current simulators are trained as an ensemble, where each model simulates a single lung setting. 
+                        However, lungs and their attributes form a continuous space, so a parametric approach must be 
+                        explored that would consider the differences in patient lungs
 					  </textarea>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
-						**Technique used :** RNN (LSTM networks)
+                        **Our aim :** Automate Ventilation
+                        ___
+                        We need to generalize the simulation rather than to confine a simulator to a single lung type as mentioned above
+                        ___
+                        With the help of a neural network, we can achieve such a result and help to automate the procedure
+                        as well as reduce the cost of introducing a new technology
 					  </textarea>
                 </section>
             </section>
@@ -120,78 +132,93 @@
                 <section>
                     <h2>Data analysis</h2>
                 </section>
-                <section>
+                <section data-auto-animate>
                     <h5>Loading the data</h5>
-                    <pre><code data-trim data-noescape>
+                    <pre><code>
 						import pandas as pd
-						path = "./"
-						train_ori = pd.read_csv(path + "train.csv")
-						test_ori  = pd.read_csv(path + "test.csv")
-						sample = pd.read_csv(path + "sample_submission.csv")
+						path = "./ "
+						train_ori = pd.read_csv(path + "train.csv ")
+						test_ori  = pd.read_csv(path + "test.csv ")
+						sample = pd.read_csv(path + "sample_submission.csv ")
 					  </code></pre></section>
                 <section data-auto-animate>
-                    <h2>EDA</h2>
+                    <h5>Loading the data</h5>
+                    <pre><code>
+						test.head()
+					  </code></pre>
+                    <img width="980" src="./table.png" alt="table">
                 </section>
                 <section data-auto-animate>
                     <h2>EDA</h2>
+                </section>
+                <section data-auto-animate>
+                    <h2>EDA</h2>
                     <h4>Feature distribution</h4>
                 </section>
                 <section data-auto-animate>
                     <h4>Feature distribution</h4>
                     <h4>Common features</h4>
-                    <img width="1920" src="./Visualizations/breath_id.jpg" alt="Breath id">
+                    <img width="1920 " src="./Visualizations/breath_id.jpg " alt="Breath id ">
                 </section>
                 <section data-auto-animate>
                     <h4>Feature distribution</h4>
                     <h4>Common features</h4>
-                    <img width="1920" src="./Visualizations/breath_id.jpg" alt="Breath id">
-                    <img width="1920" src="./Visualizations/R.jpg" alt="R">
+                    <img width="1920 " src="./Visualizations/breath_id.jpg " alt="Breath id ">
+                    <img width="1920 " src="./Visualizations/R.jpg " alt="R ">
                 </section>
                 <section data-auto-animate>
                     <h4>Feature distribution</h4>
                     <h4>Common features</h4>
-                    <img width="1920" src="./Visualizations/R.jpg" alt="R">
-                    <img width="1920" src="./Visualizations/C.jpg" alt="C">
+                    <img width="1920 " src="./Visualizations/R.jpg " alt="R ">
+                    <img width="1920 " src="./Visualizations/C.jpg " alt="C ">
                 </section>
                 <section data-auto-animate>
                     <h4>Feature distribution</h4>
                     <h4>Common features</h4>
-                    <img width="1920" src="./Visualizations/C.jpg" alt="C">
-                    <img width="1920" src="./Visualizations/time_step.jpg" alt="Rime step">
+                    <img width="1920 " src="./Visualizations/C.jpg " alt="C ">
+                    <img width="1920 " src="./Visualizations/time_step.jpg " alt="Rime step ">
                 </section>
                 <section data-auto-animate>
                     <h4>Feature distribution</h4>
                     <h4>Common features</h4>
-                    <img width="1920" src="./Visualizations/time_step.jpg" alt="Rime step">
-                    <img width="1920" src="./Visualizations/u_in.jpg" alt="u_in">
+                    <img width="1920 " src="./Visualizations/time_step.jpg " alt="Rime step ">
+                    <img width="1920 " src="./Visualizations/u_in.jpg " alt="u_in ">
                 </section>
                 <section data-auto-animate>
                     <h4>Feature distribution</h4>
                     <h4>Common features</h4>
-                    <img width="1920" src="./Visualizations/u_in.jpg" alt="u_in">
-                    <img width="1920" src="./Visualizations/u_out.jpg" alt="u_out">
+                    <img width="1920 " src="./Visualizations/u_in.jpg " alt="u_in ">
+                    <img width="1920 " src="./Visualizations/u_out.jpg " alt="u_out ">
                 </section>
                 <section data-auto-animate>
                     <h4>Feature distribution</h4>
                     <h4>Numerical features</h4>
-                    <img width="1920" src="./Visualizations/Count_C.jpg" alt="u_in">
+                    <img width="1920 " src="./Visualizations/Count_C.jpg " alt="u_in ">
                 </section>
                 <section data-auto-animate>
                     <h4>Feature distribution</h4>
                     <h4>Numerical features</h4>
-                    <img width="1920" src="./Visualizations/Count_R.jpg" alt="u_out">
+                    <img width="1920 " src="./Visualizations/Count_R.jpg " alt="u_out ">
                 </section>
                 <section data-auto-animate>
                     <h4>Feature distribution</h4>
                     <h4>Numerical features</h4>
-                    <img height="820" src="./Visualizations/Count_u_out.jpg" alt="u_out">
+                    <img height="820 " src="./Visualizations/Count_u_out.jpg " alt="u_out ">
                 </section>
                 <section>
                     <h3>Pressure over time</h3>
-                    <img width="1920px" src="./output.gif" alt="Video here">
+                    <img width="1920px " src="./output.gif " alt="Video here ">
                 </section>
             </section>
-
+            <section>
+                <section data-auto-animate>
+                    <h2>Inference</h2>
+                </section>
+                <section data-auto-animate>
+                    <h2>Inference</h2>
+                    <p>Since the given data is time series data, we prefer using a recurrent neural network for the purpose,<br> LSTM network to be more specific</p>
+                </section>
+            </section>
             <section>
                 <section>
                     <h2>Feature engineering</h2>
@@ -236,45 +263,45 @@
                     <h2>Modelling</h2>
                 </section>
                 <section data-auto-animate>
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 450 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 350 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 250 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 150 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 100 units) )</p>
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 450 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 350 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 250 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 150 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 100 units) )</p>
                 </section>
                 <section data-auto-animate>
-                    <p style="font-size:34px;">Input layer</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 450 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 350 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 250 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 150 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 100 units) )</p>
+                    <p style="font-size:34px; ">Input layer</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 450 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 350 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 250 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 150 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 100 units) )</p>
                 </section>
                 <section data-auto-animate>
-                    <p style="font-size:34px;">Input layer</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 450 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 350 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 250 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 150 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Bidirectional ( LSTM ( 100 units) )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Dense( 50 )</p>
-                    <img width="20px" src="./arrow.png" alt="">
-                    <p style="font-size:34px;">Dense( 1 )</p>
+                    <p style="font-size:34px; ">Input layer</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 450 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 350 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 250 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 150 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Bidirectional ( LSTM ( 100 units) )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Dense( 50 )</p>
+                    <img width="20px " src="./arrow.png " alt=" ">
+                    <p style="font-size:34px; ">Dense( 1 )</p>
                 </section>
                 <section data-markdown>
                     <textarea data-template>
@@ -300,14 +327,14 @@
                 </section>
                 <section>
                     <h3>Comparing manual pressure to pressure generated by model</h3>
-                    <img src="./output.gif" alt="">
-                    <img src="./output2.gif" alt="">
+                    <img src="./output.gif " alt=" ">
+                    <img src="./output2.gif " alt=" ">
                 </section>
             </section>
 
             <section id="final ">
                 <h1>Thank You</h1>
-                <a href="./Notebook.html">View source code</a>
+                <a href="./Notebook.html ">View source code</a>
                 <p><br></p>
                 <h5>Himanshu Negi</h5>
                 <h5>Shivanshu Semwal</h5>

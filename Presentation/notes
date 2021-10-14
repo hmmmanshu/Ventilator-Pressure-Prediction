@@ -12,5 +12,5 @@ LSTM - LSTM come into play in order to solve the vanishing gradient problem
 [How lstm solve vanishing gradient problems here]
 LSTM assigns weights to data also and over time it comes to know which data is important and which is not
 LSTM solve the issue of vanishing gradient by keeping the gradients steep enought throughout the training, hence keeping the learning rate high
-
+This Scaler removes the median and scales the data according to the quantile range (defaults to IQR: Interquartile Range). The IQR is the range between the 1st quartile (25th quantile) and the 3rd quartile (75th quantile).
 
