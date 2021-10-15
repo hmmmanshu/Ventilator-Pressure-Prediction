@@ -8,9 +8,22 @@ Instead of performing simple backpropagation it performs BPTT(Back propagation t
 BPTT means, instead of going through a layers normally, it "unrolls" the RNN and "goes back in time" to analyze the network
 Gradient - Partial derivative wrt inputs. This shows how much an output changes wrt change in input
 Problems with RNN - Exploding(Assigning a high importance to a weight without much reason) and Vanishing(When the gradients become too small and NN learns too slow) gradients
+Short term memory and vanishing gradients are a problem due to backpropagation in neural networks
+
+Classic feed forward network uses a loss function to predict an output and then comapares it to the ground truth to produce an error value
+This error values is then used to backpropagate in the network and hence get a gradient that is used to adjust the weights of a NN
+Bigger the gradient, bigger the change
+This causes the gradients to shrink exponentially as if the gradients are small, the gradient of next layer will be even smaller
+We have 2 types of networks to combat short term memory
+- LSTM (Long short term memory)
+- GRU (Gated recurrent unit)
+They function just like RNN but learn long term dependencies using gates
+RNN are faster as compared to LSTM or GRU
+When we want to deal with longer sequences or want to be more precise, we use advanced RNNs
+
 LSTM - LSTM come into play in order to solve the vanishing gradient problem
 [How lstm solve vanishing gradient problems here]
 LSTM assigns weights to data also and over time it comes to know which data is important and which is not
 LSTM solve the issue of vanishing gradient by keeping the gradients steep enought throughout the training, hence keeping the learning rate high
 This Scaler removes the median and scales the data according to the quantile range (defaults to IQR: Interquartile Range). The IQR is the range between the 1st quartile (25th quantile) and the 3rd quartile (75th quantile).
-
+RNNs have a concept called sequential memory
