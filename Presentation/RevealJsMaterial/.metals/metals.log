@@ -1,0 +1,5 @@
+[0m2021.10.15 20:11:25 INFO  Started: Metals version 0.10.7 in workspace 'C:\Users\hnegi\Desktop\Ventilator-Pressure-Prediction\Presentation\RevealJsMaterial' for client Visual Studio Code 1.61.0.[0m
+[0m2021.10.15 20:11:28 INFO  time: initialize in 2.92s[0m
+[0m2021.10.15 20:11:29 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.15 20:11:29 WARN  no build tool detected in workspace 'C:\Users\hnegi\Desktop\Ventilator-Pressure-Prediction\Presentation\RevealJsMaterial'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.15 20:17:34 INFO  shutting down Metals[0m
