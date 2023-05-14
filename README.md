@@ -10,4 +10,4 @@ Generalize the simulation rather than to confine a simulator to a single lung ty
 Usage of LSTM driven models which predict the correct pressure depending upon the type of lung, provided the lung attributes; Hence providing a better system to work with.
 ___
 | **[Code](https://github.com/Bot-7037/Ventilator-Pressure-Prediction/blob/main/Notebook.ipynb)** |
-**[Playground]([https://bot-7037.github.io/Ventilator-Pressure-Prediction/Presentation/RevealJsMaterial/index.html](https://hmmmanshu.github.io/Ventilator-Pressure-Prediction/Presentation/RevealJsMaterial/index.html))** |
+**[Playground](https://hmmmanshu.github.io/Ventilator-Pressure-Prediction/Presentation/RevealJsMaterial/index.html)** |
